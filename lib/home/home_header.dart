@@ -6,20 +6,25 @@ class home_header_section extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height / 15),
-            child: Row(
-              children: [
-                Text(
-                  "Hello,\nAbdalraheem",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
-                Container(
+      padding: const EdgeInsets.only(top: 60),
+      child: Column(children: [
+        Container(
+          margin:
+              EdgeInsets.only(bottom: MediaQuery.of(context).size.height / 15),
+          child: Row(
+            children: [
+              Text(
+                "Hello,\nAbdalraheem",
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height / 30,
+                    fontWeight: FontWeight.bold),
+              ),
+              Spacer(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/user_profile");
+                },
+                child: Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                       color: Color(0xffFFCA00),
@@ -29,26 +34,29 @@ class home_header_section extends StatelessWidget {
                     width: 30,
                     height: 30,
                   ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height / 15),
-            child: Row(
-              children: [
-                Text(
-                  "Trending",
-                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Spacer(),
-                Text("See all", style: TextStyle(color: Color(0xff1F8CFF)))
-              ],
-            ),
+              )
+            ],
           ),
-        ],
-      ),
+        ),
+        Container(
+          child: Row(
+            children: [
+              Text(
+                "Trending",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.height / 45),
+              ),
+              Spacer(),
+              Text("See all",
+                  style: TextStyle(
+                      color: Color(0xff1F8CFF),
+                      fontSize: MediaQuery.of(context).size.height / 55))
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
